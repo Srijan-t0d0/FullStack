@@ -21,8 +21,8 @@ async function fNr() {
 };
 
 button.addEventListener('click' , fNr );
-input.addEventListener('keypress' , (e) => {
-    if(e.key === "Enter") {
-        fNr()
-    }
+    input.addEventListener('keypress' , (e) => {
+        if(e.key === "Enter") {
+            fNr()
+        }
 });
