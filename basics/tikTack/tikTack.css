@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+}
+.col {
+  height: 60px;
+  width: 60px;
+  border: 1px solid rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
