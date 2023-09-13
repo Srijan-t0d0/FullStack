@@ -14,8 +14,12 @@ function checkWin(){
         (board[0] !== null && board[0] === board[4] && board[0] === board[8]) ||
         (board[6] !== null && board[6] === board[4] && board[6] === board[2])
         ){
-            console.log(currentPlayer)
+            document.write(`Winner is ${currentPlayer}`)
         }
+    if (!board.some(e => e === null)){
+        document.write(`Draw!!`);
+        return;
+    }
     }
     
 function handleClick(el){
