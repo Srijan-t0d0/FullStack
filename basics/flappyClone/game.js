@@ -1,13 +1,42 @@
-const bird = document.getElementById("bird")
+const canvas = document.getElementById("canvas")
 /** @type {HTMLCanvasElement} */
-const ctx = bird.getContext('2d')
+const ctx = canvas.getContext('2d')
 const birdImg = new Image
 birdImg.src = "bird.png"
 
-function draw() {
-    birdImg.onload = () => {
+const birdobj = {
+    vy: 5,
+    px: 250,
+    py: 500,
+    sx: (canvas.width * .025),
+    sy: (canvas.width * .025),
 
-        ctx.drawImage(birdImg , 150 , 150 , 100,100);
+    draw() {
+            ctx.drawImage(birdImg , this.px , this.py , birdImg.width/this.sx,birdImg.height/this.sy);
+        },
+    
+};
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    birdobj.draw();
+    birdobj.py +=birdobj.vy;
+
+    if (birdobj.vy < 8){
+
+        birdobj.vy += 0.5;
     }
+    //window.requestAnimationFrame(draw);
+    }
+
+function playerinput() {
+        birdobj.vy = -15
 }
-addEventListener('DOMContentLoaded' , draw)
+    
+function start () {
+    setInterval(draw , 12)
+}
+console.log(birdImg.height)
+
+addEventListener('DOMContentLoaded' , start)
+addEventListener('click' , playerinput)
